@@ -1,0 +1,20 @@
+iam:
+  lambda_role_arn: arn:aws:iam::381492255899:role/LambdaExecutionRole
+  lambda_role_name: LambdaExecutionRole
+  step_function_invoke_lambda_policy: arn:aws:iam::381492255899:policy/StepFunctionInvokeLambdaPolicy
+  step_function_role_arn: arn:aws:iam::381492255899:role/StepFunctionsExecutionRole
+  step_function_role_name: StepFunctionsExecutionRole
+lambda_functions:
+  billCustomer: arn:aws:lambda:us-east-1:381492255899:function:billCustomer
+  calculateTotal: arn:aws:lambda:us-east-1:381492255899:function:calculateTotal
+  checkInventory: arn:aws:lambda:us-east-1:381492255899:function:checkInventory
+  redeemPoints: arn:aws:lambda:us-east-1:381492255899:function:redeemPoints
+  restoreQuantity: arn:aws:lambda:us-east-1:381492255899:function:restoreQuantity
+  restoreRedeemPoints: arn:aws:lambda:us-east-1:381492255899:function:restoreRedeemPoints
+  sqsWorker: arn:aws:lambda:us-east-1:381492255899:function:sqsWorker
+sns:
+  topic_arn: arn:aws:sns:us-east-1:381492255899:NotifyCourier
+sqs:
+  queue_url: https://sqs.us-east-1.amazonaws.com/381492255899/OrdersQueue
+step_function:
+  state_machine_arn: arn:aws:states:us-east-1:381492255899:stateMachine:storeCheckoutFlow
