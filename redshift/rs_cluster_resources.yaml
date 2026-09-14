@@ -1,0 +1,12 @@
+cluster_identifier: dev-rs-cluster
+iam_role_arn: arn:aws:iam::530976901147:role/dev-rs-role
+internet_gateway_id: igw-00b34de0b4bfde7ff
+jdbc_url: jdbc:redshift://dev-rs-cluster.cxoevethw4s6.us-east-1.redshift.amazonaws.com:5439/dev-rs-db
+route_table_id: rtb-0ec90869e30d8cbc4
+security_group_id: sg-09f5ae5f4fcf9938d
+subnet_group_name: dev-rs-subnet-group
+subnet_ids:
+- subnet-0afef0e9f2e0b844c
+- subnet-0d2366fe6766546ec
+vpc_endpoint_id: vpce-02d4152855daef092
+vpc_id: vpc-0f1a14b2f4ae616d1

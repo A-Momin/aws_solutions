@@ -1,0 +1,76 @@
+ActivityStreamStatus: stopped
+AllocatedStorage: 20
+AssociatedRoles: []
+AutoMinorVersionUpgrade: false
+AvailabilityZone: us-east-1a
+BackupRetentionPeriod: 0
+BackupTarget: region
+CACertificateIdentifier: rds-ca-rsa2048-g1
+CertificateDetails:
+  CAIdentifier: rds-ca-rsa2048-g1
+  ValidTill: 2025-08-02 13:08:25+00:00
+CopyTagsToSnapshot: true
+CustomerOwnedIpEnabled: false
+DBInstanceArn: arn:aws:rds:us-east-1:381492255899:db:mysqlrds
+DBInstanceClass: db.t3.micro
+DBInstanceIdentifier: mysqlrds
+DBInstanceStatus: available
+DBName: tickitdb
+DBParameterGroups:
+- DBParameterGroupName: default.mysql8.0
+  ParameterApplyStatus: in-sync
+DBSecurityGroups: []
+DBSubnetGroup:
+  DBSubnetGroupDescription: rds-subnetgroup description
+  DBSubnetGroupName: rds-subnetgroup
+  SubnetGroupStatus: Complete
+  Subnets:
+  - SubnetAvailabilityZone:
+      Name: us-east-1b
+    SubnetIdentifier: subnet-09792769f0d049196
+    SubnetOutpost: {}
+    SubnetStatus: Active
+  - SubnetAvailabilityZone:
+      Name: us-east-1a
+    SubnetIdentifier: subnet-0ce8e186273374cd6
+    SubnetOutpost: {}
+    SubnetStatus: Active
+  VpcId: vpc-091317ce280309298
+DbInstancePort: 0
+DbiResourceId: db-DL2FXKT25RL44NNZVL3JA6HJTU
+DedicatedLogVolume: false
+DeletionProtection: false
+DomainMemberships: []
+Endpoint:
+  Address: mysqlrds.cdeemgug4meu.us-east-1.rds.amazonaws.com
+  HostedZoneId: Z2R2ITUGPM61AM
+  Port: 3306
+Engine: mysql
+EngineLifecycleSupport: open-source-rds-extended-support-disabled
+EngineVersion: 8.0.32
+EnhancedMonitoringResourceArn: arn:aws:logs:us-east-1:381492255899:log-group:RDSOSMetrics:log-stream:db-DL2FXKT25RL44NNZVL3JA6HJTU
+IAMDatabaseAuthenticationEnabled: false
+InstanceCreateTime: 2024-08-02 13:09:42.566000+00:00
+IsStorageConfigUpgradeAvailable: false
+LicenseModel: general-public-license
+MasterUsername: admin
+MonitoringInterval: 60
+MonitoringRoleArn: arn:aws:iam::381492255899:role/rds-monitoring-role
+MultiAZ: false
+NetworkType: IPV4
+OptionGroupMemberships:
+- OptionGroupName: default:mysql-8-0
+  Status: in-sync
+PendingModifiedValues: {}
+PerformanceInsightsEnabled: false
+PreferredBackupWindow: 06:19-06:49
+PreferredMaintenanceWindow: sun:07:51-sun:08:21
+PubliclyAccessible: true
+ReadReplicaDBInstanceIdentifiers: []
+StorageEncrypted: false
+StorageThroughput: 0
+StorageType: gp2
+TagList: []
+VpcSecurityGroups:
+- Status: active
+  VpcSecurityGroupId: sg-0def9f196e4a161e8

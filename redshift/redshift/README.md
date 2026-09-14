@@ -1,0 +1,1 @@
+-   [AWS Glue PySpark: Reading, Transforming and Writing Data](https://www.youtube.com/playlist?list=PL7bE4nSzLSWci0WpYafgTOBcqpdtO3cdY)
