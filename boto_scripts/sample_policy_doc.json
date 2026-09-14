@@ -1,0 +1,31 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "lakeformation:GrantPermissions",
+                "lakeformation:RevokePermissions",
+                "lakeformation:GetDataAccess"
+            ],
+            "Resource": [
+                "arn:aws:lakeformation:us-east-1:123456789012:table/mydatabase/mytable"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "glue:GetTable",
+                "glue:GetTables",
+                "glue:CreateTable",
+                "glue:UpdateTable",
+                "glue:DeleteTable"
+            ],
+            "Resource": [
+                "arn:aws:glue:us-east-1:123456789012:catalog",
+                "arn:aws:glue:us-east-1:123456789012:database/mydatabase",
+                "arn:aws:glue:us-east-1:123456789012:table/mydatabase/mytable"
+            ]
+        }
+    ]
+}
