@@ -1,0 +1,47 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Globals:
+  Function:
+    Runtime: python3.6
+    MemorySize: 256
+    Timeout: 180
+
+Resources:                   
+  GetAllItems:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: get_all_items.lambda_handler
+      Description: 'Get a list of all of the items'
+      Role: 'arn:aws:iam::846304898560:role/lambda_dynamoDB_query'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /items
+            Method: GET
+
+  CreateItemsFromS3:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: create_from_s3.lambda_handler
+      Role: 'arn:aws:iam::846304898560:role/Lambda_CreateItemsFromS3'
+      Description: Create new items when a CSV file is uploaded to S3
+      Events:
+        BucketEvent1:
+          Type: S3
+          Properties:
+            Bucket:
+              Ref: InventoryUpload
+            Events:
+              - 's3:ObjectCreated:*'
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix
+                    Value: itemlist
+                  - Name: suffix
+                    Value: txt
+
+  InventoryUpload:
+    Type: 'AWS::S3::Bucket'          

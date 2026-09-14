@@ -1,0 +1,97 @@
+{
+    "Functions": [
+        {
+            "FunctionName": "hello_world",
+            "FunctionArn": "arn:aws:lambda:us-east-1:583847744398:function:hello_world",
+            "Runtime": "python3.7",
+            "Role": "arn:aws:iam::583847744398:role/service-role/hello_world-role-dy4kknbf",
+            "Handler": "lambda_function.lambda_handler",
+            "CodeSize": 369,
+            "Description": "A starter AWS Lambda function.",
+            "Timeout": 3,
+            "MemorySize": 128,
+            "LastModified": "2022-05-11T19:26:08.606+0000",
+            "CodeSha256": "ZOnyNc9MNIsnx0qCRnYII1rV8EOhTF/Vad0nu5VwaRU=",
+            "Version": "$LATEST",
+            "TracingConfig": {
+                "Mode": "PassThrough"
+            },
+            "RevisionId": "19a9c37f-0e58-4547-be0b-54828aaee2b4",
+            "PackageType": "Zip",
+            "Architectures": [
+                "x86_64"
+            ],
+            "EphemeralStorage": {
+                "Size": 512
+            },
+            "SnapStart": {
+                "ApplyOn": "None",
+                "OptimizationStatus": "Off"
+            }
+        },
+        {
+            "FunctionName": "student-api-stack-HelloWorldFunction-kReamNJ1iGk6",
+            "FunctionArn": "arn:aws:lambda:us-east-1:583847744398:function:student-api-stack-HelloWorldFunction-kReamNJ1iGk6",
+            "Runtime": "python3.7",
+            "Role": "arn:aws:iam::583847744398:role/student-api-stack-HelloWorldFunctionRole-Y2HXT3KNT0A4",
+            "Handler": "app.lambda_handler",
+            "CodeSize": 452838,
+            "Description": "",
+            "Timeout": 3,
+            "MemorySize": 128,
+            "LastModified": "2022-05-16T04:54:26.463+0000",
+            "CodeSha256": "R0MNgRmi3dmgOFa2VnQJyZLKPs8WJ88YCIJqQYLHq+8=",
+            "Version": "$LATEST",
+            "TracingConfig": {
+                "Mode": "PassThrough"
+            },
+            "RevisionId": "4066ca7a-73f3-4f04-b96f-c43e229b92b8",
+            "PackageType": "Zip",
+            "Architectures": [
+                "x86_64"
+            ],
+            "EphemeralStorage": {
+                "Size": 512
+            },
+            "SnapStart": {
+                "ApplyOn": "None",
+                "OptimizationStatus": "Off"
+            }
+        },
+        {
+            "FunctionName": "lambda-canary",
+            "FunctionArn": "arn:aws:lambda:us-east-1:583847744398:function:lambda-canary",
+            "Runtime": "python3.7",
+            "Role": "arn:aws:iam::583847744398:role/service-role/lambda-canary-role-x5s7oh9s",
+            "Handler": "lambda_function.lambda_handler",
+            "CodeSize": 661,
+            "Description": "Performs a periodic check of the given site, erroring out on test failure.",
+            "Timeout": 3,
+            "MemorySize": 128,
+            "LastModified": "2022-12-06T16:01:54.000+0000",
+            "CodeSha256": "ZaS+qbXLb/ho90X4L2BPZ3Md5KhD2FanjW3qco1GYoM=",
+            "Version": "$LATEST",
+            "Environment": {
+                "Variables": {
+                    "site": "https://www.amazon.com/",
+                    "expected": "Online Shopping"
+                }
+            },
+            "TracingConfig": {
+                "Mode": "PassThrough"
+            },
+            "RevisionId": "522ab30c-ef8c-4ca4-ba2f-3e5e492d027c",
+            "PackageType": "Zip",
+            "Architectures": [
+                "x86_64"
+            ],
+            "EphemeralStorage": {
+                "Size": 512
+            },
+            "SnapStart": {
+                "ApplyOn": "None",
+                "OptimizationStatus": "Off"
+            }
+        }
+    ]
+}

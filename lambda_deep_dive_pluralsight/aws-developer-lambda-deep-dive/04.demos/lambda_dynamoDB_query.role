@@ -1,0 +1,63 @@
+{
+  "roleName": "lambda_dynamoDB_query",
+  "policies": [
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "logs:CreateLogGroup",
+              "logs:CreateLogStream",
+              "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:*"
+          }
+        ]
+      },
+      "name": "oneClick_lambda_basic_execution_1513023508033",
+      "type": "inline"
+    },
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Sid": "Stmt1513024201000",
+            "Effect": "Allow",
+            "Action": [
+              "dynamodb:Query",
+              "dynamodb:Scan",
+              "dynamodb:GetItem"
+            ],
+            "Resource": [
+              "arn:aws:dynamodb:us-east-1:846304898560:table/inventory"
+            ]
+          }
+        ]
+      },
+      "name": "policygen-lambda_dynamoDB_query-201712112231",
+      "type": "inline"
+    },
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Sid": "Stmt1513289023000",
+            "Effect": "Allow",
+            "Action": [
+              "dynamodb:UpdateItem"
+            ],
+            "Resource": [
+              "arn:aws:dynamodb:us-east-1:846304898560:table/inventory"
+            ]
+          }
+        ]
+      },
+      "name": "policygen-lambda_dynamoDB_query-201712150004",
+      "type": "inline"
+    }
+  ]
+}

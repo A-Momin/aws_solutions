@@ -1,0 +1,87 @@
+{
+  "Comment": "Flow started when a customer purchase an item, must pass itemId and quantitypurchased",
+  "StartAt": "UpdateInventory",
+  "States": {
+    "UpdateInventory" : {
+      "Type" : "Task",
+      "Resource" : "arn:aws:lambda:us-east-1:846304898560:function:MarkItemsAsSold",
+      "ResultPath" : "$.remainingItems",
+      "Next" : "CheckRemainingItems"
+    },
+    "CheckRemainingItems" :{
+      "Type" : "Choice",
+      "Choices" :[
+        {
+          "Variable" : "$.remainingItems",
+          "NumericGreaterThanEquals" : 0,
+          "Next" : "CallBillingGateway"
+        }
+      ],
+      "Default" : "NotifySeller"
+    },
+    "NotifySeller" : {
+      "Type" : "Task",
+      "Resource" : "arn:aws:lambda:us-east-1:846304898560:function:SendMessageToSeller",
+      "ResultPath" : null,
+      "Next" : "WaitForAWhile"
+    },
+    "WaitForAWhile" : {
+      "Type" : "Wait",
+      "Seconds" : 60,
+      "Next" : "UpdateInventory"
+    },
+    "CallBillingGateway" : {
+      "Type" : "Task",
+      "Resource" : "arn:aws:lambda:us-east-1:846304898560:function:GetPaymentFromCustomer",
+      "Next" : "SendNotifications",
+      "Retry" : [{
+        "ErrorEquals" : ["States.Timeout", "States.TaskFailed"],
+        "IntervalSeconds" : 30,
+        "MaxAttempts" : 5,
+        "BackoffRate" : 2
+      }],
+      "Catch" : [
+        {
+          "ErrorEquals" : ["BadCreditError"],
+          "ResultPath" : "$.errorId",
+          "Next" : "ExitOnFailure"
+        },
+        {
+          "ErrorEquals" : ["States.All"],
+          "Next" : "ExitOnFailure"
+        }
+      ]
+    },
+    "ExitOnFailure" : {
+      "Type" : "Fail"
+    },
+    "SendNotifications" :{
+      "Type" : "Parallel",
+      "Branches" :[
+        {
+          "StartAt" : "GetCustomerEmail",
+          "States" :{
+            "GetCustomerEmail" :{
+              "Type" : "Pass",
+              "Next" : "SendNotificationToCustomer"
+            },
+            "SendNotificationToCustomer" :{
+              "Type" : "Pass",
+              "End" : true
+            }
+          }
+        },
+        {
+          "StartAt" : "SendNotificationToStorage",
+          "States" :{
+            "SendNotificationToStorage" :{
+              "Type" : "Pass",
+              "End" : true
+            }
+          }
+        }
+      ],
+      "End" : true
+    }
+  }
+}

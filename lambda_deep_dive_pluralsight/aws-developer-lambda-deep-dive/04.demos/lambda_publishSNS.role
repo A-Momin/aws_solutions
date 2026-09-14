@@ -1,0 +1,73 @@
+{
+  "roleName": "lambda_publishSNS",
+  "policies": [
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:us-east-1:846304898560:*"
+          },
+          {
+            "Effect": "Allow",
+            "Action": [
+              "logs:CreateLogStream",
+              "logs:PutLogEvents"
+            ],
+            "Resource": [
+              "arn:aws:logs:us-east-1:846304898560:log-group:/aws/lambda/NotifyItemNotAvailable:*"
+            ]
+          }
+        ]
+      },
+      "name": "AWSLambdaBasicExecutionRole-256368e8-3309-415c-9787-5da1a9bb93d2",
+      "id": "ANPAIINQQWJKHG2UIXTAW",
+      "type": "managed",
+      "arn": "arn:aws:iam::846304898560:policy/service-role/AWSLambdaBasicExecutionRole-256368e8-3309-415c-9787-5da1a9bb93d2"
+    },
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "dynamodb:DescribeStream",
+              "dynamodb:GetRecords",
+              "dynamodb:GetShardIterator",
+              "dynamodb:ListStreams",
+              "logs:CreateLogGroup",
+              "logs:CreateLogStream",
+              "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+          }
+        ]
+      },
+      "name": "AWSLambdaDynamoDBExecutionRole",
+      "id": "ANPAIP7WNAGMIPYNW4WQG",
+      "type": "managed",
+      "arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaDynamoDBExecutionRole"
+    },
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "sns:Publish"
+            ],
+            "Resource": "arn:aws:sns:*:*:*"
+          }
+        ]
+      },
+      "name": "AWSLambdaSNSPublishPolicyExecutionRole-a400ec02-1fcf-4994-b8af-bcb162dbb608",
+      "id": "ANPAJ5ZV3ZBQCMDMOHT2Q",
+      "type": "managed",
+      "arn": "arn:aws:iam::846304898560:policy/service-role/AWSLambdaSNSPublishPolicyExecutionRole-a400ec02-1fcf-4994-b8af-bcb162dbb608"
+    }
+  ]
+}

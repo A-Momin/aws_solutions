@@ -1,0 +1,60 @@
+{
+  "roleName": "Lambda_CreateItemsFromS3",
+  "policies": [
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": "dynamodb:PutItem",
+            "Resource": "arn:aws:dynamodb:us-east-1:846304898560:table/inventory"
+          }
+        ]
+      },
+      "name": "AmazonDynamoDB_WriteToInvetoryTable",
+      "id": "ANPAIZF4BLK436OXSF6RA",
+      "type": "managed",
+      "arn": "arn:aws:iam::846304898560:policy/AmazonDynamoDB_WriteToInvetoryTable"
+    },
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "s3:Get*",
+              "s3:List*"
+            ],
+            "Resource": "*"
+          }
+        ]
+      },
+      "name": "AmazonS3ReadOnlyAccess",
+      "id": "ANPAIZTJ4DXE7G6AGAE6M",
+      "type": "managed",
+      "arn": "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+    },
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "logs:CreateLogGroup",
+              "logs:CreateLogStream",
+              "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+          }
+        ]
+      },
+      "name": "AWSLambdaBasicExecutionRole",
+      "id": "ANPAJNCQGXC42545SKXIK",
+      "type": "managed",
+      "arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+    }
+  ]
+}
