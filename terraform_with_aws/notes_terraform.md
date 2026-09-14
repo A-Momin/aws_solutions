@@ -1,0 +1,1 @@
+/Users/aminulmomin/mydocs/ntbs/nts/notes_terraform.md

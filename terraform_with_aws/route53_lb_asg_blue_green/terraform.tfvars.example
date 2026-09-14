@@ -1,0 +1,42 @@
+# Example terraform.tfvars file for Blue-Green Deployment
+
+# AWS Configuration
+aws_region = "us-east-1"
+
+# Project Configuration
+project_name = "demo-app"
+
+# Existing Infrastructure
+existing_vpc_id = "vpc-xxxxxxxxx"                                                                       # Replace with your VPC ID
+certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Replace with your certificate ARN
+domain_name     = "harnesstechtx.com"
+
+# EC2 Configuration
+ami_id         = "ami-053a45fff0a704a47" # Amazon Linux 2023
+instance_type  = "t3.micro"
+key_pair_name  = "AMShah"    # Replace with your key pair name
+ssh_cidr_block = "0.0.0.0/0" # Restrict this to your IP for security
+
+# Application Configuration
+health_check_path  = "/"
+active_environment = "blue"
+
+# Auto Scaling Configuration
+asg_config = {
+  min_size         = 1
+  max_size         = 4
+  desired_capacity = 2
+}
+
+# Application Versions
+app_versions = {
+  blue  = "v1.0.0"
+  green = "v1.1.0"
+}
+
+# Deployment Configuration
+deployment_config = {
+  enable_auto_rollback = true
+  rollback_threshold   = 5   # percentage of failed requests
+  monitoring_duration  = 300 # seconds
+}
